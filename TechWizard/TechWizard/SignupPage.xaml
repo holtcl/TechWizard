@@ -1,0 +1,37 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TechWizard.SignupPage" BackgroundColor="#202D4D">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
+
+        <Label Grid.Row="1" Grid.Column="0" TextColor="#FFFFFF">First Name</Label>
+        <Entry Grid.Row="2" Grid.Column="0" TextColor="White"></Entry>
+        <Label Grid.Row="3" Grid.Column="0" TextColor="White">Last Name</Label>
+        <Entry Grid.Row="4" Grid.Column="0" TextColor="White"></Entry>
+        <Label Grid.Row="5" Grid.Column="0" TextColor="White">Email</Label>
+        <Entry Grid.Row="6" Grid.Column="0" TextColor="White"></Entry>
+        <Label Grid.Row="7" Grid.Column="0" TextColor="White">Password</Label>
+        <Entry Grid.Row="8" Grid.Column="0" TextColor="White"></Entry>
+
+    </Grid>
+
+</ContentPage>
+<Label Text="" />
