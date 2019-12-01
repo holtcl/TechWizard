@@ -5,33 +5,50 @@
              mc:Ignorable="d"
              x:Class="TechWizard.SignupPage" BackgroundColor="#202D4D">
 
-    <Grid>
+    <Grid Margin="2" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition  Width="200*"/>
         </Grid.ColumnDefinitions>
         <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
 
-        <Label Grid.Row="1" Grid.Column="0" TextColor="#FFFFFF">First Name</Label>
-        <Entry Grid.Row="2" Grid.Column="0" TextColor="White"></Entry>
-        <Label Grid.Row="3" Grid.Column="0" TextColor="White">Last Name</Label>
-        <Entry Grid.Row="4" Grid.Column="0" TextColor="White"></Entry>
-        <Label Grid.Row="5" Grid.Column="0" TextColor="White">Email</Label>
-        <Entry Grid.Row="6" Grid.Column="0" TextColor="White"></Entry>
-        <Label Grid.Row="7" Grid.Column="0" TextColor="White">Password</Label>
-        <Entry Grid.Row="8" Grid.Column="0" TextColor="White"></Entry>
+        <Label Grid.Row="1" Grid.Column="0" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Center">Account Type</Label>
+        <Picker Grid.Row="2" BackgroundColor="Green" AutomationProperties.IsInAccessibleTree="False" TextColor="#3DFCDA">
+            <Picker.Items>
+                <x:String>User</x:String>
+                <x:String>Wizard</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label Grid.Row="3" Grid.Column="0" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title">First Name </Label>
+        <Entry Grid.Row="4" Grid.Column="0" BackgroundColor="White"></Entry>
+        <Label Grid.Row="5" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Last Name</Label>
+        <Entry Grid.Row="6" Grid.Column="0" BackgroundColor="White"></Entry>
+        <Label Grid.Row="7" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Email</Label>
+        <Entry Grid.Row="8" Grid.Column="0" BackgroundColor="White" Keyboard="Email"></Entry>
+        <Label Grid.Row="9" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Password</Label>
+        <Entry Grid.Row="10" Grid.Column="0" BackgroundColor="White" Margin="0" HeightRequest="-1" IsPassword="True" IsTabStop="False"></Entry>
+        <Label Grid.Row="11" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Password Confirm</Label>
+        <Entry Grid.Row="12" Grid.Column="0" BackgroundColor="White" Margin="0" HeightRequest="-1" IsPassword="True"></Entry>
+
+        <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="14"
+                Text="Sign Up" Clicked="SignUpButton_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
 
     </Grid>
 
 </ContentPage>
-<Label Text="" />

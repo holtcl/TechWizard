@@ -11,5 +11,9 @@ namespace TechWizard
         {
             InitializeComponent();
         }
+        private async void SignUpButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Profile());
+        }
     }
 }
