@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace TechWizard
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateJob : ContentPage
     {
         public CreateJob()
