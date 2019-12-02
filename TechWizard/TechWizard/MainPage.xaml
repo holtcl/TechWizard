@@ -8,6 +8,10 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -21,11 +25,17 @@
 
         <Image Source="Blackbluekeyboard.png" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
 
+        <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title">Email</Label>
+        <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White"></Entry>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Password</Label>
+        <Entry Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" IsPassword="True"></Entry>
 
-        <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2"
+
+        <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="7"
                 Text="Sign Up" Clicked="SignUpButton_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#7EA7E6"/>
-        <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2"
-                Text="Login" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" IsTabStop="True" BackgroundColor="#7EA7E6"/>
+        <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="7"
+                Text="Login" Clicked="LoginButton_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" IsTabStop="True" BackgroundColor="#7EA7E6"/>
     </Grid>
 
 </ContentPage>

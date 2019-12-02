@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TechWizard.CreateJob" BackgroundColor="#202D4D">
+    <ContentPage.Content>
+        <Grid Margin="2" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+              
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="20*"/>
+                <ColumnDefinition  Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#1D1DE6" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EE6D0" FontSize="Title" HorizontalOptions="Center" FontAttributes="Bold">Create Job</Label>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Subtitle">Title</Label>
+            <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White"></Entry>
+            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Subtitle" >Description</Label>
+            <Entry Grid.Row="5" Grid.Column="0"  Grid.ColumnSpan="2" Grid.RowSpan="4" BackgroundColor="White"></Entry>
+            <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Subtitle">Email</Label>
+            <Entry Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White"></Entry>
+            <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Subtitle">Skills Needed</Label>
+            <Entry Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White"></Entry>
+            
+
+
+          
+            <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="14"
+                Text="Submit job"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

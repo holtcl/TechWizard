@@ -22,5 +22,10 @@ namespace TechWizard
         {
             await Navigation.PushAsync(new SignupPage());
         }
+
+        private async void LoginButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Profile());
+        }
     }
 }
