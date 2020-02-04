@@ -25,7 +25,7 @@ namespace TechWizard
 
         private async void LoginButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Profile());
+     //       User user = new User (email_entry.text, password_entry.text);
         }
     }
 }

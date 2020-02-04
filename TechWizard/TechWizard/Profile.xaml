@@ -31,7 +31,10 @@
             </Grid.ColumnDefinitions>
             <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
 
-            <Image Source="profileplaceholder.png" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" BackgroundColor="#7EA7E6"></Image>
+            <Image Source="profileplaceholder.png" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2" BackgroundColor="#7EA7E6">
+                
+                
+            </Image>
             <Picker Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Green" AutomationProperties.IsInAccessibleTree="False" TextColor="#3DFCDA" FontSize="Subtitle" HorizontalOptions="FillAndExpand">
                 <Picker.Items>
                     <x:String>User</x:String>
@@ -45,11 +48,14 @@
 
 
             <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="10"
-                    Text="Change Picture"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
+                    Text="Change Picture" Clicked="ChangePic_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
+            
             <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="10"
                     Text="Change Password"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
+            
             <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="12"
                 Text="View Jobs" Clicked="ViewJobs_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#60ED4D" FontSize="Subtitle"/>
+            
             <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="12"
                 Text="Create Jobs" Clicked="CreateJobs_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#2FF0EC" FontSize="Subtitle"/>
 

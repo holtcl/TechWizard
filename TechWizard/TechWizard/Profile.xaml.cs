@@ -25,5 +25,9 @@ namespace TechWizard
         {
             await Navigation.PushAsync(new CreateJob());
         }
+        private async void ChangePic_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CreateJob());
+        }
     }
 }

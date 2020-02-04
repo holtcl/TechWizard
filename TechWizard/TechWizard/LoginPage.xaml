@@ -17,7 +17,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/> 
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -28,7 +28,7 @@
             <Entry Grid.Row="3" Grid.Column="0" BackgroundColor="White"></Entry>
             <Label Grid.Row="4" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Password</Label>
             <Entry Grid.Row="5" Grid.Column="0" BackgroundColor="White" IsPassword="True"></Entry>
-           
+
             <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="11"
                 Text="Login"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
 
