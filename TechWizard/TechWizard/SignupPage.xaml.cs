@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 namespace TechWizard
 {
     public partial class SignupPage : ContentPage
-    {
+    {        
         public SignupPage()
         {
             InitializeComponent();
@@ -24,7 +24,18 @@ namespace TechWizard
                 return;
             }
             
+            //todo: validate zip
             
+            
+            //todo: validate phone
+
+            
+            //todo: validate password
+
+            
+            //todo: validate zip
+
+
             User user = new User()
             {
                 UserName = EmailEnt.Text,
