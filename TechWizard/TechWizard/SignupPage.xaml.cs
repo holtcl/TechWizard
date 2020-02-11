@@ -55,21 +55,19 @@ namespace TechWizard
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpClient client = new HttpClient();
-
             
+            var result = await client.PostAsync(HttpAuthHandler.API_URL + "api/User/", content);
 
+            var loginsuccess = await HttpAuthHandler.login(user.UserName, user.Password);
             
-            
-            var result = await client.PostAsync("http://10.0.2.2:44371/api/User/", content);
-
-            if (result.StatusCode == HttpStatusCode.Created)
+            if (result.StatusCode == HttpStatusCode.Created && loginsuccess)
             {
                 await DisplayAlert("Success", "Your account has been created", "Find a Wizard");
             }
             else {
-                DisplayAlert("Error", result.StatusCode + result.ReasonPhrase, "ok");
+                await DisplayAlert("Error", result.StatusCode + result.ReasonPhrase, "ok");
             }
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new Profile());
 
 
 

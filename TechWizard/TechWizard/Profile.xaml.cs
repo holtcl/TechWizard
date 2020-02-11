@@ -7,14 +7,27 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.Media;
 
 namespace TechWizard
 {
     public partial class Profile : ContentPage
     {
+
         public Profile()
         {
             InitializeComponent();
+
+            string fullname = Application.Current.Properties["user_firstname"] + " " + Application.Current.Properties["user_lastname"];
+            namelabel.Text = fullname;
+            phonelabel.Text = Application.Current.Properties["user_phone"].ToString();
+            emaillabel.Text = Application.Current.Properties["user_email"].ToString();
+
+            addresslabel.Text = Application.Current.Properties["user_address"] + "\n" +
+            Application.Current.Properties["user_city"] + ", " +
+            Application.Current.Properties["user_state"] + " " +
+            Application.Current.Properties["user_zip"];
+
         }
         private async void ViewJobs_OnClicked(object sender, EventArgs e)
         {
@@ -27,7 +40,15 @@ namespace TechWizard
         }
         private async void ChangePic_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CreateJob());
+
+            await CrossMedia.Current.Initialize();
         }
+
+        private async void Logout_Clicked(object sender, EventArgs e)
+        {
+            await HttpAuthHandler.logout(Navigation);
+        }
+
+
     }
 }
