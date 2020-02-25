@@ -27,9 +27,9 @@
 
         <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
         <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title">Email</Label>
-        <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White"></Entry>
+        <Entry x:Name="email_entry" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White"></Entry>
         <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Password</Label>
-        <Entry Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" IsPassword="True"></Entry>
+        <Entry x:Name="password_entry" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="White" IsPassword="True"></Entry>
 
 
         <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="7"
