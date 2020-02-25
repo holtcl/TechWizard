@@ -5,6 +5,7 @@
              mc:Ignorable="d"
              x:Class="TechWizard.SignupPage" BackgroundColor="#202D4D">
 
+    <ScrollView>
     <Grid Margin="2" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -21,34 +22,112 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
 
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="200*"/>
         </Grid.ColumnDefinitions>
         <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
 
-        <Label Grid.Row="1" Grid.Column="0" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Center">Account Type</Label>
+        <!--<Label Grid.Row="1" Grid.Column="0" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Center">Account Type</Label>
         <Picker Grid.Row="2" BackgroundColor="Green" AutomationProperties.IsInAccessibleTree="False" TextColor="#3DFCDA">
             <Picker.Items>
                 <x:String>User</x:String>
                 <x:String>Wizard</x:String>
             </Picker.Items>
-        </Picker>
+        </Picker>-->
         <Label Grid.Row="3" Grid.Column="0" TextColor="#FFFFFF" HeightRequest="-1" IsTabStop="False" BackgroundColor="#7EA7E6" FontSize="Title">First Name</Label>
         <Entry Grid.Row="4" Grid.Column="0" BackgroundColor="White" x:Name="FirstNameEnt"></Entry>
         <Label Grid.Row="5" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Last Name</Label>
         <Entry Grid.Row="6" Grid.Column="0" BackgroundColor="White" x:Name="LastNameEnt"></Entry>
-        <Label Grid.Row="7" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Email</Label>
-        <Entry Grid.Row="8" Grid.Column="0" BackgroundColor="White" Keyboard="Email" x:Name="EmailEnt"></Entry>
-        <Label Grid.Row="9" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Password</Label>
-        <Entry Grid.Row="10" Grid.Column="0" BackgroundColor="White" Margin="0" HeightRequest="-1" IsPassword="True" x:Name="PasswordEnt"></Entry>
-        <Label Grid.Row="11" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Password Confirm</Label>
-        <Entry Grid.Row="12" Grid.Column="0" BackgroundColor="White" Margin="0" HeightRequest="-1" IsPassword="True"></Entry>
+        <Label Grid.Row="7" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Address</Label>
+        <Entry Grid.Row="8" Grid.Column="0" BackgroundColor="White" x:Name="Address_ent"></Entry>
+        <Label Grid.Row="9" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >City</Label>
+        <Entry Grid.Row="10" Grid.Column="0" BackgroundColor="White" x:Name="City_ent"></Entry>
+        <Label Grid.Row="11" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >State</Label>
+        <Picker Grid.Row="12" BackgroundColor="White" AutomationProperties.IsInAccessibleTree="False" x:Name="state_ent">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>AK</x:String >
+                    <x:String>AL</x:String>
+                    <x:String>AR</x:String>
+                    <x:String>AZ</x:String>
+                    <x:String>CA</x:String>
+                    <x:String>CO</x:String>
+                    <x:String>CT</x:String>
+                    <x:String>DE</x:String>
+                    <x:String>FL</x:String>
+                    <x:String>GA</x:String>
+                    <x:String>HI</x:String>
+                    <x:String>IA</x:String>
+                    <x:String>ID</x:String>
+                    <x:String>IL</x:String>
+                    <x:String>IN</x:String>
+                    <x:String>KS</x:String>
+                    <x:String>KY</x:String>
+                    <x:String>LA</x:String>
+                    <x:String>MA</x:String>
+                    <x:String>MD</x:String>
+                    <x:String>ME</x:String>
+                    <x:String>MI</x:String>
+                    <x:String>MN</x:String>
+                    <x:String>MO</x:String>
+                    <x:String>MS</x:String>
+                    <x:String>MT</x:String>
+                    <x:String>NC</x:String>
+                    <x:String>ND</x:String>
+                    <x:String>NE</x:String>
+                    <x:String>NH</x:String>
+                    <x:String>NJ</x:String>
+                    <x:String>NM</x:String>
+                    <x:String>NV</x:String>
+                    <x:String>NY</x:String>
+                    <x:String>OH</x:String>
+                    <x:String>OK</x:String>
+                    <x:String>OR</x:String>
+                    <x:String>PA</x:String>
+                    <x:String>RI</x:String>
+                    <x:String>SC</x:String>
+                    <x:String>SD</x:String>
+                    <x:String>TN</x:String>
+                    <x:String>TX</x:String>
+                    <x:String>UT</x:String>
+                    <x:String>VA</x:String>
+                    <x:String>VT</x:String>
+                    <x:String>WA</x:String>
+                    <x:String>WI</x:String>
+                    <x:String>WV</x:String>
+                    <x:String>WY</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Label Grid.Row="13" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Zip</Label>
+        <Entry Grid.Row="14" Grid.Column="0" BackgroundColor="White" Keyboard="Numeric" x:Name="zip_ent"></Entry>
+        <Label Grid.Row="15" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Email</Label>
+        <Entry Placeholder="name@email.com" Grid.Row="16" Grid.Column="0" BackgroundColor="White" Keyboard="Email" x:Name="EmailEnt"></Entry>
+        <Label Grid.Row="17" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title" >Phone Number</Label>
+        <Entry Grid.Row="18" Grid.Column="0" BackgroundColor="White" Keyboard="Numeric" x:Name="Phone_ent"></Entry>
+        <Label Grid.Row="19" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Password</Label>
+        <Entry Grid.Row="20" Grid.Column="0" BackgroundColor="White" Margin="0" HeightRequest="-1" IsPassword="True" x:Name="PasswordEnt"></Entry>
+        <Label Grid.Row="21" Grid.Column="0" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Title">Password Confirm</Label>
+        <Entry Grid.Row="22" Grid.Column="0" BackgroundColor="White" Margin="0" HeightRequest="-1" IsPassword="True"></Entry>
 
-        <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="14" x:Name="SignupBtn"
+        <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="23" x:Name="SignupBtn"
                 Text="Sign Up" Clicked="SignUpButton_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="Subtitle"/>
 
     </Grid>
+    </ScrollView>
 
 </ContentPage>
