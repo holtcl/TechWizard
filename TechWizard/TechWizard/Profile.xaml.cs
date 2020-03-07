@@ -28,6 +28,12 @@ namespace TechWizard
             Application.Current.Properties["user_state"] + " " +
             Application.Current.Properties["user_zip"];
 
+            if (Application.Current.Properties["user_iswizard"] == null || Application.Current.Properties["user_iswizard"]+"" == "") {
+                HttpAuthHandler.logout(Navigation);
+            } else {
+                ViewJobButton.IsVisible = Boolean.Parse(Application.Current.Properties["user_iswizard"] + "");
+            }
+            //CreateJobButton.IsVisible = ! (bool) Application.Current.Properties["user_iswizard"];
         }
         private async void ViewJobs_OnClicked(object sender, EventArgs e)
         {
