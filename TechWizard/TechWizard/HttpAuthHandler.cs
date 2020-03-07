@@ -63,7 +63,8 @@ namespace TechWizard
             Application.Current.Properties["user_state"] = user.State;
             Application.Current.Properties["user_zip"] = user.Zip;
             Application.Current.Properties["user_phone"] = user.Phone;
-            //Application.Current.Properties["user_iswizard"] = user.IsWizard;
+            Application.Current.Properties["user_iswizard"] = user.isWizard+"";
+
             return true;
         }
 

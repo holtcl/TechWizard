@@ -12,17 +12,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                
+               
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -33,13 +24,24 @@
             <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
 
 
-            <ListView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#FDFDFD">
-                
-            <!--fill this with data from the Jobs Database--> 
-            
+            <ListView Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="#7EA7E6" SeparatorColor="#FFFFFF" SeparatorVisibility="Default"><!--fill this with data from the Jobs Database-->
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Job 1</x:String>
+                        <x:String>Job 8</x:String>
+                        <x:String>Job 3 </x:String>
+                        <x:String>Job 4</x:String>
+                    </x:Array>
+                </ListView.ItemsSource>
             </ListView>
             
+            <Button Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="4"
+                Text="Back To Profile"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="White" BackgroundColor="#7EA7E6"/>
+            <Button Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="4"
+                Text="View Claimed Jobs"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="LightGreen" IsTabStop="True" BackgroundColor="#7EA7E6"/>
+
 
         </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
