@@ -6,13 +6,15 @@
              mc:Ignorable="d"
              x:Class="TechWizard.Features">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Choose your destiny 2.0" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-                <Entry x:Name="txtMessage" Placeholder="Type something here..."></Entry>
-                <Entry x:Name="txtNumber" Placeholder="Enter Number"></Entry>
-
+        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Text="Choose your destiny 2.0" 
+                   HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="txtMessage" Placeholder="Enter Text Here"></Entry>
+                <Entry x:Name="txtTo" Placeholder="email@goeshere.com"></Entry>
+                <Entry x:Name="txtSubject" Placeholder="Email Subject"></Entry>
+                <Editor x:Name="txtBody" HeightRequest="50" Placeholder="Email body here"></Editor>
+                <Entry x:Name="txtNumber" Placeholder="Enter Phone Number"></Entry>
                 <Entry x:Name="entAddress" Placeholder="Enter the address" />
                 <Entry x:Name="entCity" Placeholder="City" />
                 <Entry x:Name="entState" Placeholder="Enter the state" />
@@ -20,9 +22,11 @@
                 <Button x:Name="btnCall" Text="Call" Clicked="btnCall_Clicked"/>
                 <Button x:Name="btnSms" Text="Send SMS" Clicked="btnSMS_Clicked"/>
                 <Button x:Name="btnGPS" Text="GPSitUp" Clicked="btnGPS_clicked" />
+                <Button x:Name="btnSend" Text="Send Mail" Clicked="btnEmail_Clicked"/>
 
 
-          
-        </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
