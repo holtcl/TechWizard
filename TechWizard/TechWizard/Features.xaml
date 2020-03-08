@@ -18,8 +18,8 @@
                 <Entry x:Name="entState" Placeholder="Enter the state" />
                 <Entry x:Name="entZip" Placeholder="Enter the zip" />
                 <Button x:Name="btnCall" Text="Call" Clicked="btnCall_Clicked"/>
-                <Button x:Name="btnSms" Text="Send SMS" Clicked="btnSendSms_Clicked"/>
-                <Button x:Name="btnclick" Text="GPSitUp" Clicked="btn_clicked" />
+                <Button x:Name="btnSms" Text="Send SMS" Clicked="btnSMS_Clicked"/>
+                <Button x:Name="btnGPS" Text="GPSitUp" Clicked="btnGPS_clicked" />
 
 
           

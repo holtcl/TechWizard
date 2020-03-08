@@ -12,11 +12,16 @@ namespace TechWizard
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Features : ContentPage
     {
+        //MATT!!! aside from the info entered into the first three btn_clicked event handles the rest of the code should be fine for what we need
         public Features()
         {
             InitializeComponent();
         }
-        public async void btn_clicked(object sender, System.EventArgs e)
+        
+        //GPS feature replace entered address info with user info from work request. 
+        //Should pull up driving directions from Wizard's Phone (Though according to my emulator the phone is around San Jose)
+        //Please note that the variable names: Thoroughfare, Locality, AdminArea, and PostalCode are from Xamarin Essentials and should not be changed
+        public async void btnGPS_clicked(object sender, System.EventArgs e)
         {
             try
             {
@@ -50,11 +55,18 @@ namespace TechWizard
                 await DisplayAlert("Faild", ex.Message, "OK");
             }
         }
-        protected override void OnAppearing()
+
+        //SMS feature replace txtNumber.Text with Phone # of user in work request
+        async void btnSMS_Clicked(object sender, System.EventArgs e)
         {
-            base.OnAppearing();
+            if (!string.IsNullOrEmpty(txtNumber.Text))
+            {
+                await SendSms(txtMessage.Text, txtNumber.Text);
+            }
+
         }
 
+        //Phone Dialer feature replace txtNumber.Text with Phone # of user in work request
         async void btnCall_Clicked(object sender, System.EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNumber.Text))
@@ -63,6 +75,13 @@ namespace TechWizard
             }
 
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
+
+
         public async Task Call(string number)
         {
             try
@@ -82,15 +101,7 @@ namespace TechWizard
                 await DisplayAlert("???", "Something else has happened", "Failed");
             }
         }
-        async void btnSendSms_Clicked(object sender, System.EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtNumber.Text))
-            {
-                await SendSms(txtMessage.Text, txtNumber.Text);
-            }
-
-        }
-
+     
         public async Task SendSms(string messageText, string recipient)
         {
             try
