@@ -18,8 +18,8 @@ namespace TechWizard
             InitializeComponent();
         }
         
-        //GPS feature replace entered address info with user info from work request. 
-        //Should pull up driving directions from Wizard's Phone (Though according to my emulator the phone is around San Jose)
+        //GPS feature- replace entered address info with user info from work request. 
+        //Should pull up driving directions from Wizard's Phone (Though according to my emulator the phone is around San Jose @ Google Headquarters)
         //Please note that the variable names: Thoroughfare, Locality, AdminArea, and PostalCode are from Xamarin Essentials and should not be changed
         public async void btnGPS_clicked(object sender, System.EventArgs e)
         {
@@ -56,7 +56,7 @@ namespace TechWizard
             }
         }
 
-        //SMS feature replace txtNumber.Text with Phone # of user in work request
+        //SMS feature- replace txtNumber.Text with Phone # of user in work request
         async void btnSMS_Clicked(object sender, System.EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNumber.Text))
@@ -66,7 +66,7 @@ namespace TechWizard
 
         }
 
-        //Phone Dialer feature replace txtNumber.Text with Phone # of user in work request
+        //Phone Dialer- feature replace txtNumber.Text with Phone # of user in work request
         async void btnCall_Clicked(object sender, System.EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNumber.Text))
@@ -74,6 +74,13 @@ namespace TechWizard
                 await Call(txtNumber.Text);
             }
 
+        }
+        //Email feature- replace txtTo.Text with Email of user in work request. Maybe replace txtSubject.Text with Job Title???? 
+        async void btnEmail_Clicked(object sender, System.EventArgs e)
+        {
+            List<string> toAddress = new List<string>();
+            toAddress.Add(txtTo.Text);
+            await SendEmail(txtSubject.Text, txtBody.Text, toAddress);
         }
 
         protected override void OnAppearing()
@@ -112,6 +119,28 @@ namespace TechWizard
             catch (FeatureNotSupportedException ex)
             {
                 await DisplayAlert("Failed", "Sms is not supported on this device.", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Failed", ex.Message, "OK");
+            }
+        }
+
+        public async Task SendEmail(string subject, string body, List<string> recipients)
+        {
+            try
+            {
+                var message = new EmailMessage
+                {
+                    Subject = subject,
+                    Body = body,
+                    To = recipients,
+                };
+                await Email.ComposeAsync(message);
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+                await DisplayAlert("Failed", "Email is not supported on this device.", "OK");
             }
             catch (Exception ex)
             {
