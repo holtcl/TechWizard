@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TechWizard.Features">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Choose your destiny 2.0" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="txtMessage" Placeholder="Type something here..."></Entry>
+                <Entry x:Name="txtNumber" Placeholder="Enter Number"></Entry>
+
+                <Entry x:Name="entAddress" Placeholder="Enter the address" />
+                <Entry x:Name="entCity" Placeholder="City" />
+                <Entry x:Name="entState" Placeholder="Enter the state" />
+                <Entry x:Name="entZip" Placeholder="Enter the zip" />
+                <Button x:Name="btnCall" Text="Call" Clicked="btnCall_Clicked"/>
+                <Button x:Name="btnSms" Text="Send SMS" Clicked="btnSendSms_Clicked"/>
+                <Button x:Name="btnclick" Text="GPSitUp" Clicked="btn_clicked" />
+
+
+          
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
