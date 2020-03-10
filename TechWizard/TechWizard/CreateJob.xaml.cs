@@ -1,15 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-
+using TechWizard.Models;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace TechWizard
 {
@@ -25,7 +21,8 @@ namespace TechWizard
             populateDropdowns();
         }
 
-        private async void populateDropdowns() {
+        private async void populateDropdowns()
+        {
 
 
             HttpClient client = new HttpClient();
@@ -59,12 +56,13 @@ namespace TechWizard
             }
         }
 
-        private int parsePrice(string pricestr) {
+        private int parsePrice(string pricestr)
+        {
             int ioutput = 0;
             double doutput = 0;
 
             // Make sure the input is at least a number
-            if(!Double.TryParse(pricestr, out doutput)) 
+            if (!Double.TryParse(pricestr, out doutput))
                 throw new FormatException("Valid price was not entered"); ;
 
             //check if there's a decimal and whether it has one or two numbers following it
@@ -73,19 +71,21 @@ namespace TechWizard
             if (decimalIndex == -1)
             {
                 Int32.TryParse(pricestr, out ioutput);
-                return ioutput*100;
+                return ioutput * 100;
             }
-            else {
+            else
+            {
 
-                switch (pricestr.Length - decimalIndex) {
+                switch (pricestr.Length - decimalIndex)
+                {
                     case 1:
                         pricestr = pricestr.Remove(pricestr.Length - 1, 1);
                         Int32.TryParse(pricestr, out ioutput);
-                        return (ioutput *100);
+                        return (ioutput * 100);
                     case 2:
                         pricestr = pricestr.Remove(pricestr.Length - 2, 1);
                         Int32.TryParse(pricestr, out ioutput);
-                        return (ioutput*10);
+                        return (ioutput * 10);
                     case 3:
                         pricestr = pricestr.Remove(pricestr.Length - 3, 1);
                         Int32.TryParse(pricestr, out ioutput);
@@ -111,8 +111,9 @@ namespace TechWizard
                     priceInCents = parsePrice(priceEnt.Text),
                 };
             }
-            catch (FormatException ex) {
-                //make an alert
+            catch (FormatException ex)
+            {
+                DisplayAlert("Invalid price", "Please enter a valid price.", "OK");
                 return;
             }
             var json = JsonConvert.SerializeObject(request);
@@ -127,7 +128,7 @@ namespace TechWizard
                 await DisplayAlert("Your help request has been sent", "A Wizard will reach out to you shortly", "Horray!");
             }
 
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new Profile());
 
         }
     }

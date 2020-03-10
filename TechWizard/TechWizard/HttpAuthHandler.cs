@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
+using TechWizard.Models;
 using Xamarin.Forms;
 
 namespace TechWizard
@@ -13,37 +13,39 @@ namespace TechWizard
     class HttpAuthHandler
     {
         public static readonly string API_URL = "http://10.0.2.2:44371/";
-        private static readonly string[] PersistedValues = {"token", "user_firstname", "user_lastname", "user_id", 
+        private static readonly string[] PersistedValues = {"token", "user_firstname", "user_lastname", "user_id",
             "user_email", "user_address", "user_city", "user_state", "user_zip", "user_phone", "user_iswizard"};
-        
-        private static void SetBearerToken(String token) {
+
+        private static void SetBearerToken(String token)
+        {
             Application.Current.Properties["token"] = token;
         }
 
-        public static bool isBearerTokenSet() {
-            return !String.IsNullOrEmpty(Application.Current.Properties["token"].ToString());
+        public static bool isBearerTokenSet()
+        {
+            return Application.Current.Properties.ContainsKey("token");
         }
 
-        public static HttpClient addTokenHeader(HttpClient httpClient) {
+        public static HttpClient addTokenHeader(HttpClient httpClient)
+        {
             string token = Application.Current.Properties["token"].ToString();
-            
+
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             return httpClient;
         }
 
-        public static async Task<bool> logout(INavigation Navigation) {
-            foreach (string key in PersistedValues) 
-            {
-                Application.Current.Properties[key] = "";
-            }
+        public static async Task<bool> logout(INavigation Navigation)
+        {
+            Application.Current.Properties.Clear();
 
             await Navigation.PushAsync(new MainPage());
 
             return true;
         }
 
-        private static async Task<bool> PopulateUserData() {
+        private static async Task<bool> PopulateUserData()
+        {
             HttpClient httpClient = new HttpClient();
 
             httpClient = addTokenHeader(httpClient);
@@ -63,12 +65,12 @@ namespace TechWizard
             Application.Current.Properties["user_state"] = user.State;
             Application.Current.Properties["user_zip"] = user.Zip;
             Application.Current.Properties["user_phone"] = user.Phone;
-            Application.Current.Properties["user_iswizard"] = user.isWizard+"";
+            Application.Current.Properties["user_iswizard"] = user.isWizard + "";
 
             return true;
         }
 
-    public static async Task<bool> login(string username, string password)
+        public static async Task<bool> login(string username, string password)
         {
             HttpClient httpClient = new HttpClient();
 

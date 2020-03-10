@@ -1,38 +1,38 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
-using Newtonsoft.Json;
-
-using Xamarin.Forms;
-using System.Net;
 using System.Text.RegularExpressions;
+using TechWizard.Models;
+using Xamarin.Forms;
 
 namespace TechWizard
 {
     public partial class SignupPage : ContentPage
-    {        
+    {
         public SignupPage()
         {
             InitializeComponent();
         }
         private async void SignUpButton_OnClicked(object sender, EventArgs e)
         {
-            if (!isValidEmail(EmailEnt.Text)) 
+            if (!isValidEmail(EmailEnt.Text))
             {
                 await DisplayAlert("Error", "Email is not valid.", "OK");
-                
+
                 return;
             }
-            
+
             //todo: validate zip
-            
-            
+
+
             //todo: validate phone
 
-            
+
             //todo: validate password
 
-            
+
             //todo: validate zip
 
 
@@ -50,21 +50,22 @@ namespace TechWizard
                 Password = PasswordEnt.Text
             };
 
-            
+
             var json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             HttpClient client = new HttpClient();
-            
+
             var result = await client.PostAsync(HttpAuthHandler.API_URL + "api/User/", content);
 
             var loginsuccess = await HttpAuthHandler.login(user.UserName, user.Password);
-            
+
             if (result.StatusCode == HttpStatusCode.Created && loginsuccess)
             {
                 await DisplayAlert("Success", "Your account has been created", "Find a Wizard");
             }
-            else {
+            else
+            {
                 await DisplayAlert("Error", result.StatusCode + result.ReasonPhrase, "ok");
             }
             await Navigation.PushAsync(new Profile());
@@ -75,14 +76,16 @@ namespace TechWizard
 
         }
 
-        private bool isValidEmail(string email) { 
+        private bool isValidEmail(string email)
+        {
             // email pattern from emailregex.com
             var emailPattern = "^(?(\")(\".+?(?<!\\\\)\"@)|(([0-9a-z]((\\.(?!\\.))|[-!#\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)(?<=[0-9a-z])@))(?(\\[)(\\[(\\d{1,3}\\.){3}\\d{1,3}\\])|(([0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9]))$";
 
-            return Regex.IsMatch(email, emailPattern);   
+            return Regex.IsMatch(email, emailPattern);
         }
 
-        private bool isValidPassword(string password) {
+        private bool isValidPassword(string password)
+        {
 
             return false;
         }
