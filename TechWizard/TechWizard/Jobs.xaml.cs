@@ -46,5 +46,10 @@ namespace TechWizard
         {
             collectionView.SelectedItem = null;
         }
+
+        private async void FeaturesButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Features());
+        }
     }
 }

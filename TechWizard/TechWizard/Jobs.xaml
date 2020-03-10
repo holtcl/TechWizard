@@ -23,7 +23,6 @@
             </Grid.ColumnDefinitions> 
             
             <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
--->
             <CollectionView x:Name="collectionView"
                             SelectionMode="Single"
                             SelectionChanged="collectionView_SelectionChangedAsync">
