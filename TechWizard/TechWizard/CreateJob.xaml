@@ -31,9 +31,8 @@
                 <ColumnDefinition  Width="20*"/>
             </Grid.ColumnDefinitions>
             <Image Source="logo.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="#202D4D"/>
-
-            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" HeightRequest="-1" IsTabStop="False" FontSize="Title" HorizontalOptions="Center" BackgroundColor="#7EA7E6">Request a Wizard</Label>
-            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center" IsEnabled="False"> Please provide a breif/detailed explination of your issue and how you would like to be contacted</Label>
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Padding="10" TextColor="White" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center">Request a Wizard</Label>
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" HorizontalOptions="Center" HorizontalTextAlignment="Center" IsEnabled="False"> Please provide a brief detailed explination of your issue and how you would like to be contacted</Label>
             <Entry Placeholder="Title" PlaceholderColor="White" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Subtitle"  x:Name="jobtitleent"></Entry>
             <Editor Placeholder="Description" Grid.Row="5" Grid.Column="0"  Grid.ColumnSpan="2" Grid.RowSpan="3" BackgroundColor="White" x:Name="DescriptionEnt"></Editor>
             <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Subtitle">Hourly Wage Offer</Label>

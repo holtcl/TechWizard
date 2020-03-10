@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TechWizard.Jobs" BackgroundColor="#202D4D" Appearing="ContentPage_Appearing">
+             x:Class="TechWizard.WizardJobs" BackgroundColor="#202D4D" Appearing="ContentPage_Appearing">
     <ContentPage.Content>
         <StackLayout>
             <!--<Grid Margin="2" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand">

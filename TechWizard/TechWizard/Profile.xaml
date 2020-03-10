@@ -58,11 +58,11 @@
                     Text="Logout"  Clicked="Logout_Clicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="10"/>
             
             <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9"
-                    Text="View Invoices/In Progress Jobs"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="10"/>
+                    Text="My Requested Jobs" Clicked="ViewJobsAsUser_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#D0D2D5" FontSize="10"/>
 
             <!--visable if = IsWizard -->
             <Button x:Name="ViewJobButton" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="14"
-                Text="View/Accept Jobs" Clicked="ViewJobs_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#60ED4D" FontSize="14" IsVisible="True"/>
+                Text="View Available Jobs" Clicked="ViewJobs_OnClicked" FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB" BackgroundColor="#60ED4D" FontSize="14" IsVisible="True"/>
             
             <!--visable if = IsUser -->
             <Button x:Name="CreateJobButton" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="15"

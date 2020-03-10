@@ -8,11 +8,11 @@ using Xamarin.Forms;
 namespace TechWizard
 {
     //[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Jobs : ContentPage
+    public partial class WizardJobs : ContentPage
     {
         List<JobListObject> JobsForDisplay { get; set; }
 
-        public Jobs()
+        public WizardJobs()
         {
             populateJobs();
 
@@ -24,7 +24,7 @@ namespace TechWizard
             HttpClient client = new HttpClient();
             client = HttpAuthHandler.addTokenHeader(client);
 
-            var requestsResponse = await client.GetAsync(HttpAuthHandler.API_URL + "api/Request");
+            var requestsResponse = await client.GetAsync(HttpAuthHandler.API_URL + "api/WizardJob");
 
             if (requestsResponse.IsSuccessStatusCode)
             {
@@ -39,7 +39,7 @@ namespace TechWizard
             if (e.CurrentSelection.Count == 0)
                 return;
 
-            await Navigation.PushAsync(new JobPull((JobListObject)e.CurrentSelection[0]));
+            await Navigation.PushAsync(new JobPull((JobListObject)e.CurrentSelection[0],true));
         }
 
         private void ContentPage_Appearing(object sender, EventArgs e)

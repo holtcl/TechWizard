@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using Plugin.Media;
+using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Plugin.Media;
 
 namespace TechWizard
 {
@@ -28,16 +21,19 @@ namespace TechWizard
             Application.Current.Properties["user_state"] + " " +
             Application.Current.Properties["user_zip"];
 
-            if (Application.Current.Properties["user_iswizard"] == null || Application.Current.Properties["user_iswizard"]+"" == "") {
+            if (Application.Current.Properties["user_iswizard"] == null || Application.Current.Properties["user_iswizard"] + "" == "")
+            {
                 HttpAuthHandler.logout(Navigation);
-            } else {
+            }
+            else
+            {
                 ViewJobButton.IsVisible = Boolean.Parse(Application.Current.Properties["user_iswizard"] + "");
             }
             //CreateJobButton.IsVisible = ! (bool) Application.Current.Properties["user_iswizard"];
         }
         private async void ViewJobs_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Jobs());
+            await Navigation.PushAsync(new WizardJobs());
         }
 
         private async void CreateJobs_OnClicked(object sender, EventArgs e)
@@ -48,6 +44,11 @@ namespace TechWizard
         {
 
             await CrossMedia.Current.Initialize();
+        }
+
+        private async void ViewJobsAsUser_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Jobs());
         }
 
         private async void Logout_Clicked(object sender, EventArgs e)

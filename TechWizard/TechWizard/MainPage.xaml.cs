@@ -1,13 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace TechWizard
@@ -41,7 +33,7 @@ namespace TechWizard
                 await Navigation.PushAsync(new Profile());
             }
             else
-            { 
+            {
                 await DisplayAlert("Oops!", "Invalid username/password combo.", "Ok");
             }
 
