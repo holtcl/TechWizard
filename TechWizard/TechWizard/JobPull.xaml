@@ -23,6 +23,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition  Width="*"/>
@@ -35,6 +37,10 @@
 
                         <Label Grid.Row="0" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="contactFirstName"></Label>
                         <Label Grid.Row="1" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="contactContactInfo"></Label>
+                        <Button Grid.Row="2" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" x:Name="phoneButton" Text="Call"  Clicked="phoneButton_Clicked"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB"  BackgroundColor="#60ED4D"  FontSize="Subtitle" IsVisible="False"/>
+                        <Button Grid.Row="2" Grid.Column="1" Padding="10" Grid.ColumnSpan="1" x:Name="textButton" Text="Text"  Clicked="textButton_Clicked"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB"  BackgroundColor="#60ED4D"  FontSize="Subtitle" IsVisible="False"/>
+                        <Button Grid.Row="2" Grid.Column="2" Padding="10" Grid.ColumnSpan="1" x:Name="emailButton" Text="Email"  Clicked="emailButton_Clicked"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB"  BackgroundColor="#60ED4D"  FontSize="Subtitle" IsVisible="False"/>
+                        <Button Grid.Row="3" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" x:Name="GPSButton" Text="GPS"  Clicked="GPSButton_Clicked"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="#2475CB"  BackgroundColor="#60ED4D"  FontSize="Subtitle" IsVisible="False"/>
                     </Grid>
                     <Label Padding="10" TextColor="White" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center">Job Details</Label>
                     <Grid Margin="2" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand">
