@@ -35,11 +35,10 @@ namespace TechWizard
             return httpClient;
         }
 
-        public static async Task<bool> logout(INavigation Navigation)
+        public static async Task<bool> logout()
         {
             Application.Current.Properties.Clear();
-
-            await Navigation.PushAsync(new MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
 
             return true;
         }

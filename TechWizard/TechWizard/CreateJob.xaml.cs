@@ -128,7 +128,7 @@ namespace TechWizard
                 await DisplayAlert("Your help request has been sent", "A Wizard will reach out to you shortly", "Horray!");
             }
 
-            await Navigation.PushAsync(new Profile());
+            await Navigation.PopToRootAsync();
 
         }
     }

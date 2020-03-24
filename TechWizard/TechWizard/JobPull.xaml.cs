@@ -33,6 +33,9 @@ namespace TechWizard
             {
                 acceptButton.IsVisible = bool.Parse(Application.Current.Properties["user_iswizard"] + "");
                 acceptButton.IsVisible &= thisRequest.acceptDate == null;
+
+                actionHeader.IsVisible = !acceptButton.IsVisible;
+                actionGrid.IsVisible = actionHeader.IsVisible;
             }
         }
 
@@ -131,16 +134,18 @@ namespace TechWizard
 
             if (confirmed) {
 
-                HttpClient client = new HttpClient();
-                client = HttpAuthHandler.addTokenHeader(client);
+                HttpClient client = HttpAuthHandler.addTokenHeader(new HttpClient());
 
-                HttpResponseMessage requestsResponse = await client.PostAsync(HttpAuthHandler.API_URL + "api/WizardJob/"+thisRequest.requestID, null);
+                HttpResponseMessage requestsResponse = await client.PostAsync(HttpAuthHandler.API_URL + "api/WizardJob/"+thisRequest.requestID,null);
 
 
                 if (requestsResponse.IsSuccessStatusCode && bool.Parse(await requestsResponse.Content.ReadAsStringAsync()))
                 {
                     await DisplayAlert("Job Accepted!", "Check your orders page for the job info!", "Ok");
-                    acceptButton.IsVisible = false;
+
+                    thisRequest.acceptDate = DateTime.Now;
+
+                    Navigation.PopAsync();
                 } 
                 else
                 {
@@ -148,6 +153,7 @@ namespace TechWizard
                 }
             }
         }
+
 
         private async void GPSButton_Clicked(object sender, EventArgs e)
         {
@@ -273,6 +279,16 @@ namespace TechWizard
             {
                 await DisplayAlert("Failed", ex.Message, "OK");
             }
+        }
+
+        private void saveButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportButton_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
