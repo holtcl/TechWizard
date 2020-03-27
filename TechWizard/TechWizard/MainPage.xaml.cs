@@ -27,7 +27,7 @@ namespace TechWizard
             if (success)
             {
                 Profile profile = new Profile();
-                Application.Current.MainPage = profile;
+                Application.Current.MainPage = new NavigationPage(profile);
             }
             else
             {

@@ -59,14 +59,42 @@
 
                         <Label Grid.Row="0" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="MediumSeaGreen" FontSize="Small" VerticalTextAlignment="Center">Hours Worked</Label>
 
-                        <Entry Placeholder="Enter hours here" PlaceholderColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="Green" FontSize="Subtitle" x:Name="hoursWorkedEnt"></Entry>
+                        <Entry Placeholder="Enter hours here" PlaceholderColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="Green" VerticalTextAlignment="Center" HorizontalTextAlignment="End" FontSize="Subtitle" x:Name="hoursWorkedEnt"></Entry>
                         <Button x:Name="saveButton" Grid.ColumnSpan="3" Text="Save Hours"  Clicked="saveButton_Clicked"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="White" Grid.Row="1" BackgroundColor="green"  FontSize="Subtitle" IsVisible="true"/>
                         <Button x:Name="wizReportButton" Text="report job"  Clicked="reportButton_Clicked"  FontAttributes="Bold" BorderColor="#FFFFFF" BorderWidth="2" CornerRadius="2" TextColor="#FFFFFF" Grid.Row="3" Grid.Column="1" BackgroundColor="#FF0000"  FontSize="Subtitle" IsVisible="true"/>
                     </Grid>
-                    
+
+                    <Label Padding="10" Margin="2" TextColor="#4B629D" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="#60ed4d" x:Name="approvalHeader" IsVisible="False">User Actions</Label>
+                    <Grid Margin="2" Padding="4" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand" x:Name="approvalGrid" BackgroundColor="#60ed4d" IsVisible="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="MediumSeaGreen" FontSize="Small" VerticalTextAlignment="Center">Hours Worked</Label>
+
+                       
+                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="Green" FontSize="Subtitle" x:Name="hoursWorkedLabel" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Padding="3">blah</Label>
+                        <Label Grid.Row="1" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="MediumSeaGreen" FontSize="Small" VerticalTextAlignment="Center">Total Cost</Label>
+
+                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="Green" FontSize="Subtitle" x:Name="totalCostLabel" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Padding="3">blah</Label>
+                        <Button x:Name="approveButton" Grid.ColumnSpan="3" Text="Approve Job"  Clicked="approveButton_Clicked"  FontAttributes="Bold" BorderColor="#2475CB" BorderWidth="2" CornerRadius="2" TextColor="White" Grid.Row="2" BackgroundColor="green"  FontSize="Subtitle" IsVisible="true"/>
+                        <Button x:Name="userReportButton" Text="report job"  Clicked="reportButton_Clicked"  FontAttributes="Bold" BorderColor="#FFFFFF" BorderWidth="2" CornerRadius="2" TextColor="#FFFFFF" Grid.Row="4" Grid.Column="1" BackgroundColor="#FF0000"  FontSize="Subtitle" IsVisible="true"/>
+                    </Grid>
+
+
                     <Label Padding="10" TextColor="White" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center">Job Details</Label>
                     <Grid Margin="2" RowSpacing="4" ColumnSpacing="2" VerticalOptions="StartAndExpand">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
@@ -90,8 +118,9 @@
                         <Label Grid.Row="4" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center">Preferred contact method</Label>
                         <Label Grid.Row="5" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center">Required Skill</Label>
                         <Label Grid.Row="6" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center">Date Opened</Label>
-                        <Label Grid.Row="7" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center" x:Name="jobDateStartedHeaderLabel">Date Started</Label>
-                        <Label Grid.Row="8" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center" x:Name="jobDateCompletedHeaderLabel">Date Completed</Label>
+                        <Label Grid.Row="7" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center" x:Name="jobDateStartedHeaderLabel" IsVisible="False">Date Started</Label>
+                        <Label Grid.Row="8" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center" x:Name="jobDateCompletedHeaderLabel" IsVisible="False">Date Completed</Label>
+                        <Label Grid.Row="9" Grid.Column="0" Padding="10" Grid.ColumnSpan="1" TextColor="White" BackgroundColor="#7EA7E6" FontSize="Small" VerticalTextAlignment="Center" x:Name="finalPriceHeaderLabel" IsVisible="False">Final Price</Label>
 
                         <Label Grid.Row="0" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobTitleLabel"></Label>
                         <Label Grid.Row="1" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobStatusLabel"></Label>
@@ -100,8 +129,9 @@
                         <Label Grid.Row="4" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobContactMethodLabel"></Label>
                         <Label Grid.Row="5" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobRequiredSkillLabel"></Label>
                         <Label Grid.Row="6" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobDateOpenedLabel"></Label>
-                        <Label Grid.Row="7" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobDateStartedLabel"></Label>
-                        <Label Grid.Row="8" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobDateCompletedLabel"></Label>
+                        <Label Grid.Row="7" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobDateStartedLabel" IsVisible="False"></Label>
+                        <Label Grid.Row="8" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="jobDateCompletedLabel" IsVisible="False"></Label>
+                        <Label Grid.Row="9" Grid.Column="1" Padding="10" Grid.ColumnSpan="2" TextColor="White" BackgroundColor="#4B629D" FontSize="Medium" x:Name="finalPriceLabel" IsVisible="False"></Label>
                     </Grid>
                 </StackLayout>
             </ScrollView>

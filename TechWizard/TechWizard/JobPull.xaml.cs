@@ -29,13 +29,29 @@ namespace TechWizard
             populateJobSection();
             populateContactSection();
 
-            if (isReferredFromWizardJobPage)
+            if (isReferredFromWizardJobPage && thisRequest.completedDate != null)
             {
                 acceptButton.IsVisible = bool.Parse(Application.Current.Properties["user_iswizard"] + "");
                 acceptButton.IsVisible &= thisRequest.acceptDate == null;
 
                 actionHeader.IsVisible = !acceptButton.IsVisible;
                 actionGrid.IsVisible = actionHeader.IsVisible;
+
+                if (thisRequest.hours != null)
+                {
+                    saveButton.IsVisible = false;
+                    hoursWorkedEnt.Text = thisRequest.hours.Value.ToString();
+                    hoursWorkedEnt.IsEnabled = false;
+                }
+            }
+            else {
+                if (thisRequest.hours != null && thisRequest.completedDate==null)
+                {
+                    approvalHeader.IsVisible = true;
+                    approvalGrid.IsVisible = true;
+                    hoursWorkedLabel.Text = thisRequest.hours.Value.ToString();
+                    totalCostLabel.Text = thisRequest.totalCost;
+                }
             }
         }
 
@@ -57,26 +73,23 @@ namespace TechWizard
             jobDateOpenedLabel.Text = thisRequest.openDate.ToString("MMMM d, yyyy") +
                 " (" + calculateDaysAgo(thisRequest.openDate) + ")";
 
-            if (thisRequest.acceptDate == null)
+            if (thisRequest.acceptDate != null)
             {
-                jobDateStartedHeaderLabel.IsVisible = false;
-                jobDateStartedLabel.IsVisible = false;
-            }
-            else
-            {
+                jobDateStartedHeaderLabel.IsVisible = true;
+                jobDateStartedLabel.IsVisible = true;
                 jobDateStartedLabel.Text = thisRequest.acceptDate.Value.ToString("MMMM d, yyyy") +
                     " (" + calculateDaysAgo(thisRequest.acceptDate.Value) + ")";
             }
 
-            if (thisRequest.completedDate == null)
+            if (thisRequest.completedDate != null)
             {
-                jobDateCompletedHeaderLabel.IsVisible = false;
-                jobDateCompletedLabel.IsVisible = false;
-            }
-            else
-            {
+                jobDateCompletedHeaderLabel.IsVisible = true;
+                jobDateCompletedLabel.IsVisible = true;
                 jobDateCompletedLabel.Text = thisRequest.completedDate.Value.ToString("MMMM d, yyyy") +
                     " (" + calculateDaysAgo(thisRequest.completedDate.Value) + ")";
+                finalPriceHeaderLabel.IsVisible = true;
+                finalPriceLabel.IsVisible = true;
+                finalPriceLabel.Text = thisRequest.totalCost;
             }
         }
 
@@ -281,14 +294,71 @@ namespace TechWizard
             }
         }
 
-        private void saveButton_Clicked(object sender, EventArgs e)
+        private async void saveButton_Clicked(object sender, EventArgs e)
         {
+            HttpClient client = HttpAuthHandler.addTokenHeader(new HttpClient());
 
+            HttpResponseMessage response = await client.PutAsync(HttpAuthHandler.API_URL + "api/WizardJob/" + thisRequest.requestID + "/" + hoursWorkedEnt.Text, null);
+
+            if (response.IsSuccessStatusCode && bool.Parse(await response.Content.ReadAsStringAsync()))
+            {
+                await DisplayAlert("Job Accepted!", "Please wait for your client to accept the Hours.", "Ok");
+
+                hoursWorkedEnt.IsEnabled = false;
+                saveButton.IsVisible = false;
+                thisRequest.hours = int.Parse(hoursWorkedEnt.Text);
+                jobStatusLabel.Text = thisRequest.status;
+
+            }
+            else
+            {
+                await DisplayAlert("Error!", "Something went wrong processing your request.  Please try again later", "Ok");
+            }
         }
 
-        private void reportButton_Clicked(object sender, EventArgs e)
+        private async void reportButton_Clicked(object sender, EventArgs e)
         {
+            List < string > toaddress= new List<string>();
 
+            toaddress.Add("admin@techwizard.net");
+
+            if ((Button)sender == wizReportButton)
+            {
+                await SendEmail("Report filed by Wizard for Requst Number " + thisRequest.requestID, "describe your issue below:\n\n", toaddress);
+            }
+            else if ((Button)sender == userReportButton) 
+            {
+                await SendEmail("Report filed by User for Requst Number " + thisRequest.requestID, "describe your issue below:\n\n", toaddress);
+            }
+        }
+
+        private async void approveButton_Clicked(object sender, EventArgs e)
+        {
+            HttpClient client = HttpAuthHandler.addTokenHeader(new HttpClient());
+
+            HttpResponseMessage response = await client.PutAsync(HttpAuthHandler.API_URL + "api/Request/" + thisRequest.requestID, null);
+
+            if (response.IsSuccessStatusCode && bool.Parse(await response.Content.ReadAsStringAsync()))
+            {
+                await DisplayAlert("Job Approved!", "This is where payment logic would go.", "Ok");
+
+                approvalHeader.IsVisible = false;
+                approvalGrid.IsVisible = false;
+
+                thisRequest.completedDate = DateTime.Now;
+
+                jobDateCompletedHeaderLabel.IsVisible = true;
+                jobDateCompletedLabel.IsVisible = true;
+                jobDateCompletedLabel.Text= thisRequest.completedDate.Value.ToString("MMMM d, yyyy") +
+                    " (" + calculateDaysAgo(thisRequest.completedDate.Value) + ")";
+
+                jobStatusLabel.BackgroundColor = Color.FromHex(thisRequest.statusColor);
+                jobStatusLabel.Text = thisRequest.status;
+            }
+            else
+            {
+                await DisplayAlert("Error!", "Something went wrong processing your request.  Please try again later", "Ok");
+            }
         }
     }
 }
