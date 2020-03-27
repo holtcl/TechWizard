@@ -14,9 +14,10 @@ namespace TechWizard
 
         public WizardJobs()
         {
+            InitializeComponent();
+
             populateJobs();
 
-            InitializeComponent();
         }
 
         private async void populateJobs()

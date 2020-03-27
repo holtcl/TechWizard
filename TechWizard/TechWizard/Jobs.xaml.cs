@@ -49,7 +49,7 @@ namespace TechWizard
 
         private async void FeaturesButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Features());
+           // await Navigation.PushAsync(new Features());
         }
     }
 }

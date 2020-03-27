@@ -63,14 +63,15 @@ namespace TechWizard
             if (result.StatusCode == HttpStatusCode.Created && loginsuccess)
             {
                 await DisplayAlert("Success", "Your account has been created", "Find a Wizard");
+                Profile profile = new Profile();
+                Application.Current.MainPage = new NavigationPage(profile);
             }
             else
             {
                 await DisplayAlert("Error", result.StatusCode + result.ReasonPhrase, "ok");
             }
-            await Navigation.PushAsync(new Profile());
 
-
+              
 
             //await Navigation.PushAsync(new Profile());
 

@@ -11,12 +11,8 @@ namespace TechWizard
     {
         public MainPage()
         {
-            if (HttpAuthHandler.isBearerTokenSet())
-            {
-                Navigation.PushAsync(new Profile());
-            }
-
             InitializeComponent();
+
         }
 
         private async void SignUpButton_OnClicked(object sender, EventArgs e)
@@ -30,7 +26,8 @@ namespace TechWizard
 
             if (success)
             {
-                await Navigation.PushAsync(new Profile());
+                Profile profile = new Profile();
+                Application.Current.MainPage = new NavigationPage(profile);
             }
             else
             {
