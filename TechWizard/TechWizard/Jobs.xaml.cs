@@ -47,6 +47,6 @@ namespace TechWizard
             collectionView.SelectedItem = null;
         }
 
-        
+
     }
 }

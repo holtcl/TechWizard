@@ -23,7 +23,7 @@ namespace TechWizard
 
             if (Application.Current.Properties["user_iswizard"] == null || Application.Current.Properties["user_iswizard"] + "" == "")
             {
-                HttpAuthHandler.logout(Navigation);
+                HttpAuthHandler.logout();
             }
             else
             {
@@ -53,7 +53,7 @@ namespace TechWizard
 
         private async void Logout_Clicked(object sender, EventArgs e)
         {
-            await HttpAuthHandler.logout(Navigation);
+            await HttpAuthHandler.logout();
         }
 
 

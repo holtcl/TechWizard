@@ -7,8 +7,15 @@ namespace TechWizard
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage());
+            if (HttpAuthHandler.isBearerTokenSet())
+            {
+                Profile profile = new Profile();
+                MainPage = new NavigationPage(profile);
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
         }
 
         protected override void OnStart()
