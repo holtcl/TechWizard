@@ -29,7 +29,7 @@ namespace TechWizard
             populateJobSection();
             populateContactSection();
 
-            if (isReferredFromWizardJobPage && thisRequest.completedDate != null)
+            if (isReferredFromWizardJobPage && thisRequest.completedDate == null)
             {
                 acceptButton.IsVisible = bool.Parse(Application.Current.Properties["user_iswizard"] + "");
                 acceptButton.IsVisible &= thisRequest.acceptDate == null;
