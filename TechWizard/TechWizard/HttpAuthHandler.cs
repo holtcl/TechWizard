@@ -12,7 +12,7 @@ namespace TechWizard
 {
     class HttpAuthHandler
     {
-        public static readonly string API_URL = "http://10.0.2.2:44371/";
+        public static readonly string API_URL = "http://techwizwebapi.azurewebsites.net/";
         private static readonly string[] PersistedValues = {"token", "user_firstname", "user_lastname", "user_id",
             "user_email", "user_address", "user_city", "user_state", "user_zip", "user_phone", "user_iswizard"};
 

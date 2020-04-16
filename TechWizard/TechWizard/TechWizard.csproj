@@ -22,7 +22,7 @@
     <EmbeddedResource Update="Contacts.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CreateJob.xaml">
+    <EmbeddedResource Update="CreateJob .xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Features.xaml">
